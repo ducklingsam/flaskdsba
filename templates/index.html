@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Bozhenov's Flask Project</title>
+		<style type="text/css">
+			.button-4 {
+    			text-decoration: none;
+    			display: inline-block;
+    			position: relative;
+    			height: 40px;
+    			line-height: 40px;
+    			padding: 0 20px;
+    			color: white;
+    			font-size: 14px;
+    			background: #383d48; 
+    			box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+			}
+			.button-4:before {
+    			content: "";
+    			position: absolute;
+    			height: 0;
+    			width: 0;
+    			top: 0;
+    			right: 0;
+    			background: linear-gradient(225deg, #BEFDE6 45%, #aaaaaa 50%, #cccccc 56%, white 80%);
+    			box-shadow: -1px 1px 1px rgba(0, 0, 0, .4);
+    			transition: .3s;
+			}
+			.button-4:hover:before {
+    			width: 20px;
+    			height: 20px;
+			}
+			.mmstd {
+				padding: 10px;
+				border: solid 1px black;
+				position: relative;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="/download" class="button-4">Download</a>
+		<a href="/mmsd" class="button-4">Mean, Meadian & Stantard Deviation</a>
+		<a href="/la" class="button-4">Location and Attendance Dependence</a>
+		<a href="/subsCountry" class="button-4">Countries and their substitutions</a>
+		<a href="/wins" class="button-4">Countries' wins</a>
+		<a href="/goals" class="button-4">Countries' goals comparsion</a>
+		<a href="/subsCompare" class="button-4">Countries' substitutions comparsion</a>
+		<a href="/pairplot" class="button-4">Pairplot</a>
+		{% if image != None  %}
+            <img src="{{ url_for('static', filename='tmp/' + image[0]) }}?{{ code }}" alt="{{ image[1] }}" style="max-width:1000px;border: 5px solid #555;">
+        {% endif %}
+		{% if html_string != None  %}
+			{% for i in html_string  %}
+				<p>{{i | safe}}</p>
+			{% endfor  %}
+		{% endif  %}
+	</body>
+</html>
