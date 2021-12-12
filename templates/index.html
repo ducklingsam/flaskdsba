@@ -53,6 +53,7 @@
 		<a href="/goals" class="button-4">Countries' goals comparsion</a>
 		<a href="/subsCompare" class="button-4">Countries' substitutions comparsion</a>
 		<a href="/results" class="button-4">Analysis</a>
+		<hr>
 		{% if image != None  %}
             <img src="{{ url_for('static', filename='tmp/' + image[0]) }}?{{ code }}" alt="{{ image[1] }}" style="max-width:1500px;max-height: 900px;border: 5px solid #555;">
         {% endif %}
