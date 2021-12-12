@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, request
+from flask import Flask, render_template, send_file
 import time
 import pandas as pd
 import json
@@ -89,7 +89,8 @@ for i in cntry:
 htg = df.groupby('home_team_country', as_index=False)['home_team_goals'].sum()
 atg = df.groupby('away_team_country', as_index=False)['away_team_goals'].sum()
 
-links = {"download": "/download",  # done
+links = {"downloadJSON": "/downloadjson",  # done
+         "downloadIPYNB": "/downloadipynb",  # done
          "MMSD": "/mmsd",  # done
          "loc_att": "/la",  # done
          "subs_country": "/subsCountry",  # done
@@ -112,7 +113,12 @@ def main_page():
     return render_index(html_string=text)
 
 
-@app.route(links["download"], methods=['GET'])
+@app.route(links["downloadIPYNB"], methods=['GET'])
+def download_ipynb():
+    return send_file("fifa_data.ipynb", as_attachment=True)
+
+
+@app.route(links["downloadJSON"], methods=['GET'])
 def download_data():
     return send_file("fifa_data.json", as_attachment=True)
 

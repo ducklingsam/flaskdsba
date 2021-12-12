@@ -3,6 +3,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Bozhenov's Flask Project</title>
 		<style type="text/css">
+			.dropdown:hover .dropdown-content {display: block;}
+			.dropdown {
+    			position: relative;
+    			display: inline-block;
+			}
+			.dropdown-content {
+    			display: none;
+    			position: absolute;
+    			background-color: #f1f1f1;
+    			min-width: 80px;
+    			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    			z-index: 1;
+			}
+			.dropdown-content a {
+    			color: black;
+    			padding: 20px 24px;
+    			align-items: center;
+    			text-decoration: none;
+    			display: block;
+			}
 			.button {
   				align-items: center;
   				appearance: none;
@@ -63,7 +83,14 @@
 		</style>
 	</head>
 	<body>
-		<a href="/download" class="button">Download</a>
+		<div class="dropdown">
+  			<button class="button">Download</button>
+  				<div class="dropdown-content">
+    				<a href="/downloadjson" class="button">JSON</a>
+    				<a href="/downloadipynb" class="button">IPYNB</a>
+  				</div>
+		</div>
+
 		<a href="/mmsd" class="button">Mean, Meadian & Stantard Deviation</a>
 		<a href="/la" class="button">Location and Attendance Dependence</a>
 		<a href="/subsCountry" class="button">Countries and their substitutions</a>
