@@ -3,38 +3,52 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Bozhenov's Flask Project</title>
 		<style type="text/css">
-			.button-4 {
-    			text-decoration: none;
-    			display: inline-block;
-    			position: relative;
-    			height: 40px;
-    			line-height: 40px;
-    			padding: 0 20px;
-    			color: white;
-    			font-size: 14px;
-    			background: #383d48; 
-    			box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+			.button {
+  				align-items: center;
+  				appearance: none;
+  				background-color: #FCFCFD;
+  				border-radius: 4px;
+  				border-width: 0;
+  				box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  				box-sizing: border-box;
+  				color: #36395A;
+ 				cursor: pointer;
+  				display: inline-flex;
+  				font-family: "JetBrains Mono",monospace;
+  				height: 48px;
+  				justify-content: center;
+  				line-height: 1;
+  				list-style: none;
+  				overflow: hidden;
+  				padding-left: 16px;
+  				padding-right: 16px;
+  				position: relative;
+  				text-align: left;
+  				text-decoration: none;
+  				transition: box-shadow .15s,transform .15s;
+  				user-select: none;
+  				-webkit-user-select: none;
+  				touch-action: manipulation;
+  				white-space: nowrap;
+  				will-change: box-shadow,transform;
+  				font-size: 11px;
 			}
-			.button-4:before {
-    			content: "";
-    			position: absolute;
-    			height: 0;
-    			width: 0;
-    			top: 0;
-    			right: 0;
-    			background: linear-gradient(225deg, #BEFDE6 45%, #aaaaaa 50%, #cccccc 56%, white 80%);
-    			box-shadow: -1px 1px 1px rgba(0, 0, 0, .4);
-    			transition: .3s;
+
+			.button:focus {
+  				box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 			}
-			.button-4:hover:before {
-    			width: 20px;
-    			height: 20px;
+
+			.button:hover {
+  				box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  				transform: translateY(-2px);
 			}
-			.mmstd {
-				padding: 10px;
-				border: solid 1px black;
-				position: relative;
-				top: 100px;
+
+			.button:active {
+  				box-shadow: #D6D6E7 0 3px 7px inset;
+  				transform: translateY(2px);
+			}
+			p, h3 {
+				font-family: "JetBrains Mono",monospace;
 			}
 			hr {
     			border: none;
@@ -45,14 +59,14 @@
 		</style>
 	</head>
 	<body>
-		<a href="/download" class="button-4">Download</a>
-		<a href="/mmsd" class="button-4">Mean, Meadian & Stantard Deviation</a>
-		<a href="/la" class="button-4">Location and Attendance Dependence</a>
-		<a href="/subsCountry" class="button-4">Countries and their substitutions</a>
-		<a href="/wins" class="button-4">Countries' wins</a>
-		<a href="/goals" class="button-4">Countries' goals comparsion</a>
-		<a href="/subsCompare" class="button-4">Countries' substitutions comparsion</a>
-		<a href="/results" class="button-4">Analysis</a>
+		<a href="/download" class="button">Download</a>
+		<a href="/mmsd" class="button">Mean, Meadian & Stantard Deviation</a>
+		<a href="/la" class="button">Location and Attendance Dependence</a>
+		<a href="/subsCountry" class="button">Countries and their substitutions</a>
+		<a href="/wins" class="button">Countries' wins</a>
+		<a href="/goals" class="button">Countries' goals comparsion</a>
+		<a href="/subsCompare" class="button">Countries' substitutions comparsion</a>
+		<a href="/results" class="button">Analysis</a>
 		<hr>
 		{% if image != None  %}
             <img src="{{ url_for('static', filename='tmp/' + image[0]) }}?{{ code }}" alt="{{ image[1] }}" style="max-width:1500px;max-height: 900px;border: 5px solid #555;">
