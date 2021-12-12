@@ -157,7 +157,7 @@ def subsCountry():
     fig = plt.figure(figsize=(12, 12))
     ax = fig.add_subplot(111)
     ax.pie(cntrySum, labels=cntry, rotatelabels=True, autopct='%.2f')
-    plt.title('Countries percentage of substitutions', y=-1.3)
+    plt.title('Countries percentage of substitutions', y = 1)
     plt.savefig('static/tmp/subs&country.png')
     return render_index(image=("subs&country.png", "Countries and percentage of substitutions"))
 
