@@ -108,7 +108,8 @@ def render_index(image=None, html_string=None, filters=None, errors=None, curren
 
 @app.route('/', methods=['GET'])
 def main_page():
-    return render_index()
+    text = ["Welcome to my <b>Pandas</b>, <b>PyPlot</b> and <b>Flask</b> Project!", "Enjoy (or not):("]
+    return render_index(html_string=text)
 
 
 @app.route(links["download"], methods=['GET'])
@@ -146,6 +147,7 @@ def locAtt():
     fig = plt.figure(figsize=(30, 10))
     ax = fig.add_subplot(111)
     ax.bar(df['location'], df['attendance'])
+    ax.set_title("Dependence of attendance from location")
     plt.xlabel('Location')
     plt.ylabel('Attendance')
     plt.savefig('static/tmp/location&attendance.png')
@@ -157,7 +159,7 @@ def subsCountry():
     fig = plt.figure(figsize=(12, 12))
     ax = fig.add_subplot(111)
     ax.pie(cntrySum, labels=cntry, rotatelabels=True, autopct='%.2f')
-    plt.title('Countries percentage of substitutions', y = 1)
+    plt.title('Countries percentage of substitutions', y=1.1)
     plt.savefig('static/tmp/subs&country.png')
     return render_index(image=("subs&country.png", "Countries and percentage of substitutions"))
 
